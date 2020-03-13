@@ -19,13 +19,19 @@
                     <li class="{{ Request::is('admin/categories/category') ? 'active' : '' }}">
                         <a href="{{ route('admin.category.index') }}" class=" waves-effect waves-block">Category</a>
                     </li>
-                    <li class="{{-- {{ Request::is('admin/balance/year') ? 'active' : '' }} --}}">
-                        <a href="{{-- {{ route('admin.balance.year') }} --}}" class=" waves-effect waves-block">Sub-Category</a>
+                    <li class="{{ Request::is('admin/categories/subcategory') ? 'active' : '' }}">
+                        <a href="{{ route('admin.subcategory.index') }}" class=" waves-effect waves-block">Sub-Category</a>
                     </li>
                     <li class="{{ Request::is('admin/categories/brand') ? 'active' : '' }}">
                         <a href="{{ route('admin.brand.index') }}" class=" waves-effect waves-block">Brand</a>
                     </li>
                 </ul>
+            </li>
+             <li class="{{ Request::is('admin/coupon') ? 'active' : '' }}">
+                <a href="{{ route('admin.coupon.index') }}">
+                    <i class="material-icons">money</i>
+                    <span>Coupons</span>
+                </a>
             </li>
             <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
                 <a href="{{ route('admin.settings') }}">

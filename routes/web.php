@@ -29,6 +29,20 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 	Route::post('/categories/brand/{id}/update','BrandController@update')->name('brand.update'); 
 	Route::get('/categories/brand/{id}/destroy','BrandController@destroy')->name('brand.destroy'); 
 	Route::get('/categories/brand/{id}/status','BrandController@status')->name('brand.status');
+	// sub-category route ==================================
+	Route::get('/categories/subcategory','SubCategoryController@index')->name('subcategory.index');
+	Route::post('/categories/subcategory/store','SubCategoryController@store')->name('subcategory.store');
+	Route::get('/categories/subcategory/{id}/edit','SubCategoryController@edit')->name('subcategory.edit'); 
+	Route::post('/categories/subcategory/{id}/update','SubCategoryController@update')->name('subcategory.update'); 
+	Route::get('/categories/subcategory/{id}/destroy','SubCategoryController@destroy')->name('subcategory.destroy'); 
+	Route::get('/categories/subcategory/{id}/status','SubCategoryController@status')->name('subcategory.status');
+	// coupon route ========================================
+	Route::get('/coupon','CouponController@index')->name('coupon.index');
+	Route::post('/coupon/store','CouponController@store')->name('coupon.store');
+	Route::get('/coupon/{id}/status','CouponController@status')->name('coupon.status');
+	Route::get('/coupon/{id}/edit','CouponController@edit')->name('coupon.edit');
+	Route::get('/coupon/{id}/destroy','CouponController@destroy')->name('coupon.destroy');
+	Route::post('/coupon/{id}/update','CouponController@update')->name('coupon.update');
 
  
 });
