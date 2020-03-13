@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-    /**
+    /** 
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -18,10 +18,14 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
-        }
-
-        return $next($request);
+        if (Auth::guard($guard)->check() && Auth::user()->role->id == 1) {
+            return redirect()->route('admin.dashboard');
+        }elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 2) {
+            return redirect()->route('staff.dashboard'); 
+        }elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 3) {
+            return redirect()->route('customer.dashboard');  
+        }else{
+            return $next($request);
+        } 
     }
 }
