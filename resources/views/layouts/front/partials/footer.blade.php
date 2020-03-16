@@ -32,17 +32,21 @@ Brands Section Start -->
             
             <!-- Mailchimp Subscribe Form Start -->
             <div class="col-lg-6 col-12 mb-15 mt-15">
+                        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+				<form class="subscribe-form" action="{{ route('subscriber.store') }}" method="post" >
+                    @csrf
+					<input type="email" autocomplete="off" placeholder="Enter your email here"class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required /> 
+					<button  type="submit">subscribe</button> 
+				</form> 
                 
-				<form id="mc-form" class="mc-form subscribe-form" >
-					<input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email here" />
-					<button id="mc-submit">subscribe</button>
-				</form>
-				<!-- mailchimp-alerts Start -->
-				<div class="mailchimp-alerts text-centre">
-					<div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-					<div class="mailchimp-success"></div><!-- mailchimp-success end -->
-					<div class="mailchimp-error"></div><!-- mailchimp-error end -->
-				</div><!-- mailchimp-alerts end -->
                 
             </div><!-- Mailchimp Subscribe Form End -->
             

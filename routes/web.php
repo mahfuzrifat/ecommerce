@@ -43,11 +43,22 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 	Route::get('/coupon/{id}/edit','CouponController@edit')->name('coupon.edit');
 	Route::get('/coupon/{id}/destroy','CouponController@destroy')->name('coupon.destroy');
 	Route::post('/coupon/{id}/update','CouponController@update')->name('coupon.update');
+	Route::get('/letter','CouponController@letter')->name('letter.index');
+	Route::get('/letter/{id}/delete','CouponController@delete')->name('letter.delete');
+	// product route ========================================
+	Route::get('/product','ProductController@index')->name('product.index');
+	Route::get('/product/create','ProductController@create')->name('product.create');
+	Route::get('/get/subcategory/{category_id}','ProductController@get');
+	Route::post('/product/store','ProductController@store')->name('product.store');
+	Route::get('/product/{id}/status','ProductController@status')->name('product.status');
+	Route::get('/product/{id}/edit','ProductController@edit')->name('product.edit');
+	Route::get('/product/{id}/show','ProductController@show')->name('product.show');
+	Route::get('/product/{id}/delete','ProductController@delete')->name('product.delete');
+	Route::post('/product/{id}/update','ProductController@update')->name('product.update');
 
- 
 });
 
-// staff route ==================================
+// staff route =====================================
 Route::group(['as'=>'staff.','prefix'=>'staff','namespace'=>'Staff','middleware'=>['auth','staff']],function(){
 	Route::get('dashboard','DashboardController@index')->name('dashboard');
 });
@@ -56,3 +67,6 @@ Route::group(['as'=>'staff.','prefix'=>'staff','namespace'=>'Staff','middleware'
 Route::group(['as'=>'customer.','prefix'=>'customer','namespace'=>'Customer','middleware'=>['auth','customer']],function(){
 	Route::get('dashboard','DashboardController@index')->name('dashboard');
 });
+
+// any route =======================================
+	Route::post('newsletter','AllController@store')->name('subscriber.store');

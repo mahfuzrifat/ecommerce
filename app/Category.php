@@ -11,6 +11,15 @@ class Category extends Model
     ];
 
     public function subcategories(){
-    	return $this->hasMany('App\SubCategory')->withTimestamps();
+    	return $this->hasMany('App\SubCategory');
+    }
+
+    public function products(){
+        return $this->hasMany('App\Product');
+    }
+
+      public function scopeActive($query)
+    {
+        return $query->where('c_status', 1);
     }
 }

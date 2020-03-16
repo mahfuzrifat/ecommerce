@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('assets/front/assets/css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/assets/css/style.css') }}">
     <script src="{{ asset('assets/front/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <link href="{{ asset('assets/backend/css/themes/all-themes.css') }}" rel="stylesheet" /> 
+    <link rel="stylesheet" href="{{ asset('assets/backend/lobibox/dist/css/lobibox.min.css') }}"/>
     @stack('css')
 </head>
 
@@ -63,6 +65,66 @@
 <script src="{{ asset('assets/front/assets/js/ajax-mail.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('assets/front/assets/js/main.js') }}"></script>
+
+<script src="{{ asset('assets/backend/js/demo.js') }}"></script>  
+<script src="{{ asset('assets/backend/lobibox/dist/js/lobibox.min.js') }}"></script>
+           
+
+ <script>
+      @if(Session::has('messege'))
+        var type="{{Session::get('alert-type','info')}}"
+        switch(type){
+            case 'info':
+                 Lobibox.notify('info', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  icon: 'fa fa-info-circle',
+                  position: 'right top',
+                  showClass: 'lightSpeedIn',
+                  hideClass: 'lightSpeedOut',
+                  width: 400,
+                  msg: "{{ Session::get('messege') }}"
+                  });
+                 break;
+            case 'success':
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  icon: 'fa fa-check-circle',
+                  position: 'right top',
+                  showClass: 'lightSpeedIn',
+                  hideClass: 'lightSpeedOut',
+                  width: 400,
+                  msg: "{{ Session::get('messege') }}"
+                  });
+                break;
+            case 'warning':
+                Lobibox.notify('warning', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  icon: 'fa fa-exclamation-circle',
+                  position: 'right top',
+                  showClass: 'lightSpeedIn',
+                  hideClass: 'lightSpeedOut',
+                  width: 400,
+                  msg: "{{ Session::get('messege') }}"
+                  });
+                break;
+            case 'error':
+                  Lobibox.notify('error', {
+                    pauseDelayOnHover: true,
+                    continueDelayOnInactiveTab: false,
+                    icon: 'fa fa-times-circle',
+                    position: 'right top',
+                    showClass: 'lightSpeedIn',
+                    hideClass: 'lightSpeedOut',
+                    width: 400,
+                    msg: "{{ Session::get('messege') }}"
+                    });
+                break;
+        }
+      @endif
+    </script>
 @stack('js')
 </body>
 </html>

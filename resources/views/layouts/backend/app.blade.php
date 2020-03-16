@@ -117,10 +117,10 @@
                   pauseDelayOnHover: true,
                   continueDelayOnInactiveTab: false,
                   icon: 'fa fa-info-circle',
-                  position: 'center top',
+                  position: 'right top',
                   showClass: 'lightSpeedIn',
                   hideClass: 'lightSpeedOut',
-                  width: 600,
+                  width: 400,
                   msg: "{{ Session::get('messege') }}"
                   });
                  break;
@@ -129,10 +129,10 @@
                   pauseDelayOnHover: true,
                   continueDelayOnInactiveTab: false,
                   icon: 'fa fa-check-circle',
-                  position: 'center top',
+                  position: 'right top',
                   showClass: 'lightSpeedIn',
                   hideClass: 'lightSpeedOut',
-                  width: 600,
+                  width: 400,
                   msg: "{{ Session::get('messege') }}"
                   });
                 break;
@@ -141,10 +141,10 @@
                   pauseDelayOnHover: true,
                   continueDelayOnInactiveTab: false,
                   icon: 'fa fa-exclamation-circle',
-                  position: 'center top',
+                  position: 'right top',
                   showClass: 'lightSpeedIn',
                   hideClass: 'lightSpeedOut',
-                  width: 600,
+                  width: 400,
                   msg: "{{ Session::get('messege') }}"
                   });
                 break;
@@ -153,10 +153,10 @@
                     pauseDelayOnHover: true,
                     continueDelayOnInactiveTab: false,
                     icon: 'fa fa-times-circle',
-                    position: 'center top',
+                    position: 'right top',
                     showClass: 'lightSpeedIn',
                     hideClass: 'lightSpeedOut',
-                    width: 600,
+                    width: 400,
                     msg: "{{ Session::get('messege') }}"
                     });
                 break;

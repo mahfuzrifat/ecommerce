@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Coupon;
+use App\letter;
 class CouponController extends Controller
 {
      public function __construct()
@@ -156,5 +157,23 @@ public function destroy($id){
 			} else {
 		   return Redirect()->back()->with($notification); 
 			}
+}
+
+public function letter(){
+  $data = letter::latest()->get();
+  return view('admin.letter.index',compact('data'));
+}
+public function delete($id){
+  $dlt = letter::findOrFail($id);
+  $dlt->delete();
+  if ($dlt) {
+    $notification=array(
+         'messege'=>'Subscriber Deleted Successfully !!',
+         'alert-type'=>'success'
+          );
+       return Redirect()->route('admin.letter.index')->with($notification);
+      } else {
+       return Redirect()->back()->with($notification); 
+      }
 }
 }

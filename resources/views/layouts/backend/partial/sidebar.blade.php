@@ -27,10 +27,33 @@
                     </li>
                 </ul>
             </li>
+             <li class="{{ Request::is('admin/product*') ? 'active' : '' }}">
+                <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                    <i class="material-icons">store</i>
+                    <span>Products</span>
+                </a>
+                <ul class="ml-menu" style="display: none;">
+                    <li class="{{ Request::is('admin/product') ? 'active' : '' }}">
+                        <a href="{{ route('admin.product.index') }}" class=" waves-effect waves-block">Products</a>
+                    </li>
+                    <li class="{{ Request::is('admin/categories/subcategory') ? 'active' : '' }}">
+                        <a href="{{ route('admin.subcategory.index') }}" class=" waves-effect waves-block">Sub-Category</a>
+                    </li>
+                    <li class="{{ Request::is('admin/categories/brand') ? 'active' : '' }}">
+                        <a href="{{ route('admin.brand.index') }}" class=" waves-effect waves-block">Brand</a>
+                    </li>
+                </ul>
+            </li>
              <li class="{{ Request::is('admin/coupon') ? 'active' : '' }}">
                 <a href="{{ route('admin.coupon.index') }}">
                     <i class="material-icons">money</i>
                     <span>Coupons</span>
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/letter') ? 'active' : '' }}">
+                <a href="{{ route('admin.letter.index') }}">
+                    <i class="material-icons">book</i>
+                    <span>Newsletter</span>
                 </a>
             </li>
             <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
